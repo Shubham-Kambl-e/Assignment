@@ -1,0 +1,47 @@
+
+<script lang="JavaScript">
+function isHtml() {
+	//set HTML value to hidden box
+	frm.source.value="HTML"
+	validate();
+}//isHtml
+
+function isExcel() {
+	//set Excel value to hidden box
+	frm.source.value="EXCEL"
+	validate();
+}//isExcel
+
+function validate(){
+	if(frm.desg.selectedIndex==0){
+		alert("please select the designation");
+		return false;
+	}
+	frm.submit();//submit the request
+	return true;
+}//validate()
+
+</script>
+<h1 style=" color:red;text-align: center">Template </h1>
+
+<form name="frm" action="controller" method="post" target="f2">
+<table border="0" bgcolor="cyan"  align="center">
+<tr>
+      <td>Select Desg::</td>
+      
+      <td><select name="desg"> 
+              <option value=""selected="selected">-----SELECT A VALUE-----</option>
+              <option value="CLERK">CLERKS</option> 
+              <option value="MANAGER">MANAGERS</option>
+              <option value="ANALYST">ANALYST</option> 
+              <option value="PRESIDENT">PRESIDENT</option> 
+              <option value="SALESMAN">SALESMAN</option>  
+      </select> </td>
+      </tr>
+      <tr>
+         <td><input type="button" value="ExcelOutput" onclick="isExcel()"></td>
+         <td><input type="button" value="HtmlOutput" onclick="isHtml()"></td>
+         </tr>
+</table>
+          <input type="hidden" name="source"/> 
+</form>
